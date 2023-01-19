@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
@@ -41,12 +42,34 @@ public class SeleniumTest {
 	 }
 	
 	@Test
+	@Tag("AcceptanceTest")
 	public void checkProsSite() throws InterruptedException {
 		String projectPath = System.getProperty("user.dir");
 		
 		//System.setProperty("webdriver.chrome.driver", projectPath+"/drivers/chromedriver.exe");
 		//WebDriver driver = new ChromeDriver(); //istanciated the driver
 		driver.get("http://localhost:8080/spm-webapp/");
+		
+		Thread.sleep(3000);
+		
+		String at = driver.getTitle();
+		String et = "SPM 2022";
+		
+		Thread.sleep(4000);
+		
+		Assert.assertEquals(et, at);
+		driver.close();
+		driver.quit();
+	}
+	
+	@Test
+	@Tag("AcceptanceTest")
+	public void checkProsSite2() throws InterruptedException {
+		String projectPath = System.getProperty("user.dir");
+		
+		//System.setProperty("webdriver.chrome.driver", projectPath+"/drivers/chromedriver.exe");
+		//WebDriver driver = new ChromeDriver(); //istanciated the driver
+		driver.get("http://localhost:8080/maven-archetype-webapp/");
 		
 		Thread.sleep(3000);
 		
