@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -48,7 +48,7 @@ public class SeleniumTest {
 		
 		//System.setProperty("webdriver.chrome.driver", projectPath+"/drivers/chromedriver.exe");
 		//WebDriver driver = new ChromeDriver(); //istanciated the driver
-		driver.get("http://localhost:8080/spm-webapp/");
+		driver.get("http://localhost:8080/maven-archetype-webapp/");
 		
 		Thread.sleep(3000);
 		
@@ -82,5 +82,17 @@ public class SeleniumTest {
 		driver.close();
 		driver.quit();
 	}
+	
+	@Test
+	  public void guessAccessTest() {
+	    driver.get("https://pros.unicam.it:4200/index?returnUrl=%2Fhome");
+	    driver.manage().window().setSize(new Dimension(1552, 831));
+	    driver.findElement(By.cssSelector(".navbar-nav:nth-child(3) .nav-link")).click();
+	    driver.findElement(By.cssSelector(".navbar-nav:nth-child(1) > .nav-item:nth-child(1) > .nav-link")).click();
+	    driver.findElement(By.cssSelector(".nav-item:nth-child(3) > .nav-link")).click();
+	    driver.findElement(By.cssSelector(".btn:nth-child(1)")).click();
+	    driver.close();
+		driver.quit();
+	  }
 
 }
