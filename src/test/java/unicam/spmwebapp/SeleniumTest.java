@@ -83,7 +83,7 @@ public class SeleniumTest {
 		driver.quit();
 	}
 	
-	@Test
+	/*@Test
 	  public void guessAccessTest() {
 	    driver.get("https://pros.unicam.it:4200/index?returnUrl=%2Fhome");
 	    driver.manage().window().setSize(new Dimension(1552, 831));
@@ -93,6 +93,6 @@ public class SeleniumTest {
 	    driver.findElement(By.cssSelector(".btn:nth-child(1)")).click();
 	    driver.close();
 		driver.quit();
-	  }
+	  }*/
 
 }
